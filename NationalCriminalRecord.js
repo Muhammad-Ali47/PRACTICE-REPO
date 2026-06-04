@@ -9,7 +9,7 @@ async function fetching(){
         return
     }   
     try{
-        let response= await fetch("https://api.jsonbin.io/v3/qs/6a205f16da38895dfe820b20")
+        let response= await fetch("https://api.jsonbin.io/v3/qs/6a21430ada38895dfe857938")
         console.log("response Testing",response)
         if(!response.ok){
             throw new Error("server Not Responding, Try Again later1")
