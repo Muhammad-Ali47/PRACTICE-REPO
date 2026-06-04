@@ -18,45 +18,32 @@ async function fetching(){
         console.log("data printing........",data)
         
         if(data.record[IdNumber]){
-            // Clear any previous error messages and show the image container
             document.getElementById("form_input_error").innerHTML=""
             document.getElementById("user_image").style.display="block"
 
             let userName=data.record[IdNumber].name
             console.log("user Name ----",userName)
             document.getElementById("form_input-First").innerText=userName.toUpperCase()
-            
-            // Fixed: changed .Last to .last to match your JSON data format
             let userLast=data.record[IdNumber].last 
             document.getElementById("form_input-last").innerText=userLast.toUpperCase()
 
             let UserPhoto=data.record[IdNumber].image
             let currentStatus=data.record[IdNumber].status
-
-            // Default: Base profile image without any stamp
             document.getElementById("user_image").innerHTML=`<img id="user_image_tag" src="${UserPhoto}" width="200px" alt="User Image">`
-            
-            // Checking statuses to apply the correct stamp overlay
             if(currentStatus==="Suspected")
             {
-                document.getElementById("user_image").innerHTML=`<div id="user_image">
-                <img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
-                <img id="user_image_Tag_02" src="stamp.png" style="opacity:0.6;"/>
-                </div>`
+                document.getElementById("user_image").innerHTML=`<img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
+                <img id="user_image_Tag_02" src="stamp.png" style="opacity:0.6;"/>`
             }
             else if(currentStatus==="Arrested")
             {
-                document.getElementById("user_image").innerHTML=`<div id="user_image">
-                <img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
-                <img id="user_image_Tag_02" src="arrest.png" style="opacity:0.6;"/>
-                </div>`
+                document.getElementById("user_image").innerHTML=`<img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
+                <img id="user_image_Tag_02" src="arrest.png" style="opacity:0.6;"/>`
             }
             else if(currentStatus==="Executed")
             {
-                document.getElementById("user_image").innerHTML=`<div id="user_image">
-                <img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
-                <img id="user_image_Tag_02" src="execute.png" style="opacity:0.6;"/>
-                </div>`
+                document.getElementById("user_image").innerHTML=`<img id="user_image_Tag" src="${UserPhoto}" width="200px" alt="User Image" />
+                <img id="user_image_Tag_02" src="execute.png" style="opacity:0.6;"/>`
             }
         }
         else{
